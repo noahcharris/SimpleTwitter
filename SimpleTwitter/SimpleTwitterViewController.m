@@ -24,13 +24,6 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-    {
-        SLComposeViewController *tweetSheet = [SLComposeViewController
-                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"Initial Tweet Text!"];
-        [self presentViewController:tweetSheet animated:YES completion:nil];
-    }
 
 }
 
@@ -43,8 +36,14 @@
 
 - (void)sendButtonClick:(id)sender
 {
-    NSLog(@"hi!!!");
-    NSLog(self.textField.text);
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController
+                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:@"Initial Tweet Text!"];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+
 }
 
 
