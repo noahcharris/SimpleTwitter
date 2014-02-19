@@ -11,5 +11,10 @@
 #import <Accounts/Accounts.h>
 
 @interface SimpleTwitterViewController : UIViewController
+<UITableViewDelegate, UITableViewDataSource>
+
+
+@property (weak, nonatomic) IBOutlet UITableView *tweetTable;
+@property (strong, nonatomic) NSArray *dataSource;
 
 @end
