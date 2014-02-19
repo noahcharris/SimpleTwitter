@@ -55,7 +55,7 @@
              {
                  ACAccount *twitterAccount = [arrayOfAccounts lastObject];
                  
-                 NSURL *requestURL = [NSURL URLWithString:@"http://api.twitter.com/1/statuses/home_timeline"];
+                 NSURL *requestURL = [NSURL URLWithString:@"http://api.twitter.com/1.1/statuses/user_timeline.json"];
                  
                  NSMutableDictionary *parameters =
                  [[NSMutableDictionary alloc] init];
