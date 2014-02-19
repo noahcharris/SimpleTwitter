@@ -80,12 +80,11 @@
                  
                  
                  
-                 NSURL *requestURL = [NSURL URLWithString:@"http://api.twitter.com/1.1/statuses/home_timeline.json"];
+                 NSURL *requestURL = [NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
                  
                  NSMutableDictionary *parameters =
                  [[NSMutableDictionary alloc] init];
-                 [parameters setObject:@"5" forKey:@"count"];
-                 [parameters setObject:@"0" forKey:@"include_entities"];
+                 [parameters setObject:@"10" forKey:@"count"];
                  
                  SLRequest *request = [SLRequest
                                            requestForServiceType:SLServiceTypeTwitter
@@ -101,16 +100,16 @@
                     *urlResponse, NSError *error)
                   {
                       
+                      NSLog(@"%d", urlResponse.statusCode);
                       self.dataSource = [NSJSONSerialization
                                          JSONObjectWithData:responseData
                                          options:NSJSONReadingMutableLeaves
                                          error:&error];
                       
-                      NSLog(@"%@", self.dataSource);
                       
-                    
                       
                       if (self.dataSource.count != 0) {
+                          NSLog(@"Count is not 1!!!");
                           dispatch_async(dispatch_get_main_queue(), ^{
                               [self.tweetTable reloadData];
                           });
@@ -130,6 +129,8 @@
 #pragma mark TableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"HEYO");
+    NSLog(@"%d", dataSource.count);
     return dataSource.count;
 }
 
@@ -144,6 +145,7 @@
         cell = [[UITableViewCell alloc]
                 initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    
     
     NSDictionary *tweet = self.dataSource[[indexPath row]];
     
