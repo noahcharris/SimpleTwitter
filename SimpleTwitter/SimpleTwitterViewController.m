@@ -27,6 +27,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [self getTweets];
     
 }
 
@@ -84,7 +85,7 @@
                  
                  NSMutableDictionary *parameters =
                  [[NSMutableDictionary alloc] init];
-                 [parameters setObject:@"10" forKey:@"count"];
+                 [parameters setObject:@"20" forKey:@"count"];
                  
                  SLRequest *request = [SLRequest
                                            requestForServiceType:SLServiceTypeTwitter
