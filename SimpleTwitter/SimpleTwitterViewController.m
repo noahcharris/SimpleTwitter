@@ -19,7 +19,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self.sendButton addTarget:self action:@selector(sendButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self getTweets];
+    //[self getTweets];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController
+                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:@"Initial Tweet Text!"];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,6 +80,8 @@
                                            URL:requestURL parameters:parameters];
                  
                  [postRequest setAccount:twitterAccount];
+                 
+                 NSLog(@"%@", twitterAccount);
                  
                  [postRequest performRequestWithHandler:
                   ^(NSData *responseData, NSHTTPURLResponse
