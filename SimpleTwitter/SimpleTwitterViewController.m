@@ -31,6 +31,7 @@
 - (void)sendButtonClick:(id)sender
 {
     NSLog(@"hi!!!");
+    NSLog(self.textField.text);
 }
 
 

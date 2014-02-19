@@ -11,11 +11,10 @@
 #import <Accounts/Accounts.h>
 
 @interface SimpleTwitterViewController : UIViewController
-<UITableViewDelegate, UITableViewDataSource>
+<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tweetTable;
-
 @property (strong, nonatomic) NSArray *dataSource;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
