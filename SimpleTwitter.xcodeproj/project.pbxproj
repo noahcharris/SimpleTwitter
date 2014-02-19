@@ -18,6 +18,8 @@
 		B936939A18B4969B0059345D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B936939918B4969B0059345D /* Default-568h@2x.png */; };
 		B936939D18B4969B0059345D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B936939B18B4969B0059345D /* MainStoryboard.storyboard */; };
 		B93693A018B4969B0059345D /* SimpleTwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B936939F18B4969B0059345D /* SimpleTwitterViewController.m */; };
+		B93693A718B496C10059345D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93693A618B496C10059345D /* Accounts.framework */; };
+		B93693A918B496CA0059345D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93693A818B496CA0059345D /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		B936939C18B4969B0059345D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		B936939E18B4969B0059345D /* SimpleTwitterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleTwitterViewController.h; sourceTree = "<group>"; };
 		B936939F18B4969B0059345D /* SimpleTwitterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleTwitterViewController.m; sourceTree = "<group>"; };
+		B93693A618B496C10059345D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		B93693A818B496CA0059345D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93693A918B496CA0059345D /* Social.framework in Frameworks */,
+				B93693A718B496C10059345D /* Accounts.framework in Frameworks */,
 				B936938418B4969B0059345D /* UIKit.framework in Frameworks */,
 				B936938618B4969B0059345D /* Foundation.framework in Frameworks */,
 				B936938818B4969B0059345D /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +79,8 @@
 		B936938218B4969B0059345D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B93693A818B496CA0059345D /* Social.framework */,
+				B93693A618B496C10059345D /* Accounts.framework */,
 				B936938318B4969B0059345D /* UIKit.framework */,
 				B936938518B4969B0059345D /* Foundation.framework */,
 				B936938718B4969B0059345D /* CoreGraphics.framework */,
