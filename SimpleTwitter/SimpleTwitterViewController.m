@@ -14,6 +14,9 @@
 
 @implementation SimpleTwitterViewController
 
+@synthesize dataSource;
+@synthesize tweetTable;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,7 +52,6 @@
 
 - (void)refreshButtonClick:(id)sender
 {
-    NSLog(@"HIIII");
     [self getTweets];
 }
 
@@ -82,8 +84,8 @@
                  
                  NSMutableDictionary *parameters =
                  [[NSMutableDictionary alloc] init];
-                 [parameters setObject:@"20" forKey:@"count"];
-                 [parameters setObject:@"1" forKey:@"include_entities"];
+                 [parameters setObject:@"5" forKey:@"count"];
+                 [parameters setObject:@"0" forKey:@"include_entities"];
                  
                  SLRequest *request = [SLRequest
                                            requestForServiceType:SLServiceTypeTwitter
@@ -92,20 +94,21 @@
                  
                  [request setAccount:twitterAccount];
                  
-                 NSLog(@"%@", request);
                  
                  
                  [request performRequestWithHandler:
                   ^(NSData *responseData, NSHTTPURLResponse
                     *urlResponse, NSError *error)
                   {
+                      
                       self.dataSource = [NSJSONSerialization
                                          JSONObjectWithData:responseData
                                          options:NSJSONReadingMutableLeaves
                                          error:&error];
                       
+                      NSLog(@"%@", self.dataSource);
                       
-                      
+                    
                       
                       if (self.dataSource.count != 0) {
                           dispatch_async(dispatch_get_main_queue(), ^{
@@ -127,7 +130,7 @@
 #pragma mark TableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dataSource.count;
+    return dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,7 +145,7 @@
                 initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    NSDictionary *tweet = _dataSource[[indexPath row]];
+    NSDictionary *tweet = self.dataSource[[indexPath row]];
     
     cell.textLabel.text = tweet[@"text"];
     return cell;

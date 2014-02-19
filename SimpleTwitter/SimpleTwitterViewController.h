@@ -15,7 +15,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tweetTable;
-@property (strong, nonatomic) NSMutableArray *dataSource;
+@property (strong, nonatomic) NSArray *dataSource;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 -(IBAction)sendButtonClick:(id)sender;
