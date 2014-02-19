@@ -44,19 +44,37 @@
                                     <outlet property="delegate" destination="2" id="me6-Gw-mjz"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QN0-t4-oJj">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Ktl-IA-eV3"/>
+                                    <constraint firstAttribute="width" constant="73" id="WbT-Mn-pQG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Refresh">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QGj-hK-Rxn" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="0Jj-DJ-5cz"/>
+                            <constraint firstItem="apT-GW-Fbg" firstAttribute="baseline" secondItem="QN0-t4-oJj" secondAttribute="baseline" type="default" id="7dA-gm-ZOY"/>
                             <constraint firstItem="HQt-Hz-alR" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ATH-3U-SlI"/>
                             <constraint firstItem="QGj-hK-Rxn" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="BV5-PG-HjK"/>
                             <constraint firstItem="HQt-Hz-alR" firstAttribute="centerX" secondItem="QGj-hK-Rxn" secondAttribute="centerX" type="default" id="WmH-Ef-ocj"/>
                             <constraint firstItem="QGj-hK-Rxn" firstAttribute="top" secondItem="apT-GW-Fbg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="XaN-Js-Cyc"/>
+                            <constraint firstItem="QN0-t4-oJj" firstAttribute="trailing" secondItem="HQt-Hz-alR" secondAttribute="trailing" type="default" id="cTj-iV-uxh"/>
+                            <constraint firstItem="QGj-hK-Rxn" firstAttribute="top" secondItem="QN0-t4-oJj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="iKq-ql-gRi"/>
                             <constraint firstItem="apT-GW-Fbg" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="12" id="usj-bu-clO"/>
                             <constraint firstItem="QGj-hK-Rxn" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="xhD-nC-4BA"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="refreshButton" destination="QN0-t4-oJj" id="rp0-qJ-4ap"/>
                         <outlet property="sendButton" destination="HQt-Hz-alR" id="bZF-mK-uFB"/>
                         <outlet property="tweetTable" destination="QGj-hK-Rxn" id="LZR-IG-0Da"/>
                     </connections>
@@ -66,19 +84,6 @@
             <point key="canvasLocation" x="6" y="71"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SimpleTwitterViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SimpleTwitterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sendButtonClick:"/>
-                <relationship kind="outlet" name="sendButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tweetTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

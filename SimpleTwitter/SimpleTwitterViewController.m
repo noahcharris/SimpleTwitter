@@ -19,12 +19,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self.sendButton addTarget:self action:@selector(sendButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    //[self getTweets];
+    [self.refreshButton addTarget:self action:@selector(refreshButtonClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,7 +43,14 @@
         [tweetSheet setInitialText:@"Initial Tweet Text!"];
         [self presentViewController:tweetSheet animated:YES completion:nil];
     }
+    
 
+}
+
+- (void)refreshButtonClick:(id)sender
+{
+    NSLog(@"HIIII");
+    [self getTweets];
 }
 
 
@@ -54,6 +61,8 @@
     ACAccountType *accountType = [account
                                   accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     
+    
+    
     [account requestAccessToAccountsWithType:accountType
                                      options:nil completion:^(BOOL granted, NSError *error)
      {
@@ -62,27 +71,31 @@
              NSArray *arrayOfAccounts = [account
                                          accountsWithAccountType:accountType];
              
+             
              if ([arrayOfAccounts count] > 0)
              {
                  ACAccount *twitterAccount = [arrayOfAccounts lastObject];
                  
-                 NSURL *requestURL = [NSURL URLWithString:@"http://api.twitter.com/1.1/statuses/user_timeline.json"];
+                 
+                 
+                 NSURL *requestURL = [NSURL URLWithString:@"http://api.twitter.com/1.1/statuses/home_timeline.json"];
                  
                  NSMutableDictionary *parameters =
                  [[NSMutableDictionary alloc] init];
                  [parameters setObject:@"20" forKey:@"count"];
                  [parameters setObject:@"1" forKey:@"include_entities"];
                  
-                 SLRequest *postRequest = [SLRequest
+                 SLRequest *request = [SLRequest
                                            requestForServiceType:SLServiceTypeTwitter
                                            requestMethod:SLRequestMethodGET
                                            URL:requestURL parameters:parameters];
                  
-                 [postRequest setAccount:twitterAccount];
+                 [request setAccount:twitterAccount];
                  
-                 NSLog(@"%@", twitterAccount);
+                 NSLog(@"%@", request);
                  
-                 [postRequest performRequestWithHandler:
+                 
+                 [request performRequestWithHandler:
                   ^(NSData *responseData, NSHTTPURLResponse
                     *urlResponse, NSError *error)
                   {
@@ -92,8 +105,6 @@
                                          error:&error];
                       
                       
-                      NSLog(@"%d", self.dataSource.count);
-                      NSLog(@"%@", error);
                       
                       
                       if (self.dataSource.count != 0) {
