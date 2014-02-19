@@ -14,18 +14,55 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="v2X-4S-JHK">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="386" id="i72-fb-TdA"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="2" id="glT-TR-jYB"/>
                                     <outlet property="delegate" destination="2" id="jID-bG-HwO"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tweets!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apT-GW-Fbg">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="6W3-JZ-1RM"/>
+                                    <constraint firstAttribute="height" constant="21" id="8Jp-4m-uge"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mUm-GU-QTs">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="WSX-TV-OrR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQt-Hz-alR">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="bZ9-Eh-nsG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="v2X-4S-JHK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="AaB-Gl-77P"/>
-                            <constraint firstItem="v2X-4S-JHK" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="BkP-Hd-wx4"/>
-                            <constraint firstItem="v2X-4S-JHK" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Rq5-Ud-QsI"/>
-                            <constraint firstItem="v2X-4S-JHK" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="aQp-LJ-3bm"/>
+                            <constraint firstItem="v2X-4S-JHK" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="3fg-g8-Vb0"/>
+                            <constraint firstItem="HQt-Hz-alR" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="91" id="3tA-in-hs5"/>
+                            <constraint firstItem="mUm-GU-QTs" firstAttribute="leading" secondItem="apT-GW-Fbg" secondAttribute="leading" type="default" id="7ep-IW-i3u"/>
+                            <constraint firstAttribute="trailing" secondItem="mUm-GU-QTs" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="EMM-b2-Zfa"/>
+                            <constraint firstItem="v2X-4S-JHK" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="O6t-q1-zUk"/>
+                            <constraint firstItem="mUm-GU-QTs" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Wov-si-Ox7"/>
+                            <constraint firstItem="apT-GW-Fbg" firstAttribute="top" secondItem="3" secondAttribute="top" constant="127" id="bin-53-xHF"/>
+                            <constraint firstItem="HQt-Hz-alR" firstAttribute="top" secondItem="mUm-GU-QTs" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rcm-vG-VEF"/>
+                            <constraint firstItem="v2X-4S-JHK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="upS-8w-hBS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -34,8 +71,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="6" y="71"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SimpleTwitterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SimpleTwitterViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tweetTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
